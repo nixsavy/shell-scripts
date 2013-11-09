@@ -8,7 +8,8 @@
 # Also make sure you install bc command.
 
 
-Source : http://www.expertslogin.com/linux-shell-script/linux-memory-usage-program/
+Source : http://www.linoxide.com/linux-shell-script/linux-memory-usage-program/
+Parent : http://www.linoxide.com/guide/scripts-pdf.html
 
 # Make sure only root can run our script
 
@@ -82,7 +83,7 @@ echo -n "${value} ${reg} "
 [[ -f /tmp/res3 ]] && rm -f /tmp/res3
 
 
-#if argument passed script will show statistic only for that pid, of not – we list all processes in /proc/ #and get statistic for all of them, all result we store in file /tmp/res
+#if argument passed script will show statistic only for that pid, of not ï¿½ we list all processes in /proc/ #and get statistic for all of them, all result we store in file /tmp/res
 if [ $# -eq 0 ]
 then
 	pids=`ls /proc | grep -e [0-9] | grep -v [A-Za-z] `
