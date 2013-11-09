@@ -6,8 +6,8 @@
 # This helps system admin for ping test and also make sure 
 # if there any issues with specific ports.
 
-
-Source : http://www.expertslogin.com/how-tos/ping-check-open-port/
+Parent : http://www.linoxide.com/guide/scripts-pdf.html
+Source : http://www.linoxide.com/how-tos/ping-check-open-port/
 
 
 # check if service name passed to script as argument, if there no arguments (0) do next
@@ -18,9 +18,9 @@ then
 
 #write to terminal usage
 
-echo “Usage: $0 ”
+echo ï¿½Usage: $0 ï¿½
 
-#since no arguments – we need to exit script and user re-run
+#since no arguments ï¿½ we need to exit script and user re-run
 
 exit 1
 fi
@@ -29,8 +29,8 @@ fi
 
 host=$1
 port=$2
-email=”test@expertslogin.com”
-subject=”Script result”
+email=ï¿½test@expertslogin.comï¿½
+subject=ï¿½Script resultï¿½
 
 #Check if ping ok -q to quite mod, -c 4 for 4 checks
 
@@ -38,9 +38,9 @@ if ping -q -c 4 $host >/dev/null
 then
 # next lines writes result variable
 
-ping_result=”OK”
+ping_result=ï¿½OKï¿½
 else
-ping_result=”NOT OK”
+ping_result=ï¿½NOT OKï¿½
 
 fi #end of fi loop
 
@@ -52,22 +52,22 @@ nc_result=`nc -z $host $port; echo $?`
 
 if [ $nc_result != 0 ];
 then
-port_result=”not opened”
+port_result=ï¿½not openedï¿½
 else
-port_result=”opened”
+port_result=ï¿½openedï¿½
 fi #exit of fi loop
 
 #writing message that script will email and write to output
 
-message=”Ping to host – ${ping_result}, port $port ${port_result}.”
+message=ï¿½Ping to host ï¿½ ${ping_result}, port $port ${port_result}.ï¿½
 
 #next check if ping or port check is failed (ping if not OK and exit status of nc if not 0)
 
 if [ "$ping_result" != "OK" -o "$nc_result" != "0" ];
 then
-echo “$message” #this line write warning message to terminal
+echo ï¿½$messageï¿½ #this line write warning message to terminal
 
-echo “$message” | mail -s “$subject” $email #this line send email
+echo ï¿½$messageï¿½ | mail -s ï¿½$subjectï¿½ $email #this line send email
 
 fi
 
